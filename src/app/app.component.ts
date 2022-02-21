@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'hbpe3seproject';
+  title: string = 'hb pe3 se project';
+  increment: number = 0;
+  students: string[] = [
+    'Yann', 'Mathieu', 'Matthieu'
+  ];
+
+  addIncrement(value: number): void {
+    this.increment += value;
+  }
 }
