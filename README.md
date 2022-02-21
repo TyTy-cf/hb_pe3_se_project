@@ -9,9 +9,6 @@ git clone https://github.com/TyTy-cf/hb_pe3_se_project.git
 
 ### Mettre à jour le projet
 
-Est-ce que vous travaillez sur une branche à part ?
-
-#### Oui
 
 Ajouter les changements au prochain commit
 
@@ -19,11 +16,15 @@ Ajouter les changements au prochain commit
 git add .
 ``
 
-Faire le commit 
+Faire le commit
 
 ``
 git commit -m "Save"
 ``
+
+Est-ce que vous travaillez sur une branche à part ?
+
+#### Oui
 
 Changer de branche pour retourner sur la main
 
