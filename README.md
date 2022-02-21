@@ -5,6 +5,8 @@
 git clone https://github.com/TyTy-cf/hb_pe3_se_project.git
 ``
 
+(Pensez au ``npm i`` après le clone !)
+
 ### Mettre à jour le projet
 
 Est-ce que vous travaillez sur une branche à part ?
