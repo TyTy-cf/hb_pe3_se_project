@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Piece} from "../../models/chess/piece";
 import {Pawn} from "../../models/chess/pawn";
+import {ChessBoard} from "../../models/chess/chess-board";
 
 @Component({
   selector: 'app-chess',
@@ -9,20 +10,18 @@ import {Pawn} from "../../models/chess/pawn";
 })
 export class ChessComponent {
 
-  pieces: Piece[] = [
-    new Pawn('black'),
-    new Pawn('white')
-  ];
+  chessBoard: ChessBoard = new ChessBoard();
 
   constructor() {
-    // for..of : renvoie la valeur de l'itération
-    for (const argument of this.pieces) {
-      console.log(argument);
-    }
-    // for..in : renvoie l'index de l'itération
-    for (const argument in this.pieces) {
-      console.log(argument);
-    }
+    console.log(this.chessBoard.board);
+    // // for..of : renvoie la valeur de l'itération
+    // for (const argument of this.chessBoard.board) {
+    //   console.log(this.chessBoard.board);
+    // }
+    // // for..in : renvoie l'index de l'itération
+    // for (const argument in this.chessBoard.board) {
+    //   console.log(argument);
+    // }
   }
 
 }

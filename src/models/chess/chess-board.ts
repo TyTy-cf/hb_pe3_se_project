@@ -1,4 +1,8 @@
 import {Case} from "./case";
+import {Piece} from "./piece";
+import {Rook} from "./rook";
+import {Pawn} from "./pawn";
+import {Knight} from "./knight";
 
 export class ChessBoard {
 
@@ -18,8 +22,32 @@ export class ChessBoard {
 
     for (const y of coordY) {
       for (const x of coordX) {
-        // traitement pour créer la case et sa pièce potentielle...
+        let piece: Piece|undefined = undefined;
+        if (y === '8') {
+          if (x == 'a' || x == 'h') {
+            piece = new Rook();
+          } else if (x === 'b' || x === 'g') {
+            piece = new Knight();
+          }
+
+          // que des pièces noires !
+        } else if (y === '7') {
+          piece = new Pawn();
+        } else if (y === '2') {
+          piece = new Pawn(ChessBoard.whiteClass);
+        } if (y === '1') {
+          // que des pièces blanches !!!!
+        }
+        // if pour dire que c'est un knight, un bishop, queen ou king...
+        this._board.push(new Case(color, x, y, piece));
         // traitement pour changer la valeur de color
+        if (x !== 'h') {
+          if (color === ChessBoard.whiteClass) {
+            color = ChessBoard.blackClass;
+          } else {
+            color = ChessBoard.whiteClass;
+          }
+        }
       }
     }
 
