@@ -16,12 +16,12 @@ export class ChessBoard {
   private _board: Case[] = [];
 
   constructor() {
-    const coordX: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    const coordY: string[] = ['8', '7', '6', '5', '4', '3', '2', '1'];
-    let color: string = ChessBoard.whiteClass;
+    const xValues: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    const yValues: string[] = ['8', '7', '6', '5', '4', '3', '2', '1'];
+    let caseColor: string = ChessBoard.whiteClass;
 
-    for (const y of coordY) {
-      for (const x of coordX) {
+    for (const y of yValues) {
+      for (const x of xValues) {
         let piece: Piece|undefined = undefined;
         if (y === '8') {
           if (x == 'a' || x == 'h') {
@@ -38,14 +38,16 @@ export class ChessBoard {
         } if (y === '1') {
           // que des pièces blanches !!!!
         }
+
         // if pour dire que c'est un knight, un bishop, queen ou king...
-        this._board.push(new Case(color, x, y, piece));
+        this._board.push(new Case(caseColor, x, y, piece));
+
         // traitement pour changer la valeur de color
         if (x !== 'h') {
-          if (color === ChessBoard.whiteClass) {
-            color = ChessBoard.blackClass;
+          if (caseColor === ChessBoard.whiteClass) {
+            caseColor = ChessBoard.blackClass;
           } else {
-            color = ChessBoard.whiteClass;
+            caseColor = ChessBoard.whiteClass;
           }
         }
       }

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {Piece} from "../../models/chess/piece";
-import {Pawn} from "../../models/chess/pawn";
 import {ChessBoard} from "../../models/chess/chess-board";
 
 @Component({
