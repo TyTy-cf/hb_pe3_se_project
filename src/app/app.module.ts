@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { ChessComponent } from './chess/chess.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PokedexComponent } from './pokedex/pokedex.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
-    ChessComponent
+    ChessComponent,
+    NavbarComponent,
+    PokedexComponent
   ],
   imports: [
     BrowserModule,
