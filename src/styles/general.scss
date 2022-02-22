@@ -4,3 +4,17 @@ body {
   color: $default-font-color;
   font-size: $default-font-size;
 }
+
+.paginate {
+  height: 44px;
+  width: 44px;
+  border-radius: 28px;
+  background-color: $chess-black;
+  padding: 0.5em 0.8em;
+  color: $chess-white;
+}
+
+.col-20 {
+  flex: 0 0 auto;
+  width: 20%;
+}
