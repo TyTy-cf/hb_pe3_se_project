@@ -3,7 +3,11 @@ import {Piece} from "./piece";
 import {Rook} from "./rook";
 import {Pawn} from "./pawn";
 import {Knight} from "./knight";
+import {Bishop} from "./bishop";
+import {Queen} from "./queen";
+import {King} from "./king";
 
+// export : permet de réutiliser la classe en dehors de ce fichier
 export class ChessBoard {
 
   // Attributs communs à toutes les instances de notre classe
@@ -23,26 +27,46 @@ export class ChessBoard {
     for (const y of yValues) {
       for (const x of xValues) {
         let piece: Piece|undefined = undefined;
+        // caseColor = white
+        // y = 8
+        // x = a
+        // piece = undefined
         if (y === '8') {
           if (x == 'a' || x == 'h') {
             piece = new Rook();
           } else if (x === 'b' || x === 'g') {
             piece = new Knight();
+          } else if (x === 'c' || x === 'f') {
+            piece = new Bishop();
+          } else if (x == 'd') {
+            piece = new Queen();
+          } else if (x == 'e') {
+            piece = new King();
           }
-
-          // que des pièces noires !
         } else if (y === '7') {
           piece = new Pawn();
         } else if (y === '2') {
           piece = new Pawn(ChessBoard.whiteClass);
         } if (y === '1') {
-          // que des pièces blanches !!!!
+          if (x == 'a' || x == 'h') {
+            piece = new Rook(ChessBoard.whiteClass);
+          } else if (x === 'b' || x === 'g') {
+            piece = new Knight(ChessBoard.whiteClass);
+          } else if (x === 'c' || x === 'f') {
+            piece = new Bishop(ChessBoard.whiteClass);
+          } else if (x == 'd') {
+            piece = new Queen(ChessBoard.whiteClass);
+          } else if (x == 'e') {
+            piece = new King(ChessBoard.whiteClass);
+          }
         }
 
-        // if pour dire que c'est un knight, un bishop, queen ou king...
+        // caseColor = white
+        // y = 8
+        // x = a
+        // piece = Rook
         this._board.push(new Case(caseColor, x, y, piece));
 
-        // traitement pour changer la valeur de color
         if (x !== 'h') {
           if (caseColor === ChessBoard.whiteClass) {
             caseColor = ChessBoard.blackClass;
@@ -52,7 +76,6 @@ export class ChessBoard {
         }
       }
     }
-
   }
 
   get board(): Case[] {

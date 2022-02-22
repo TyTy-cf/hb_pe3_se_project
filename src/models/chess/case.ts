@@ -23,26 +23,15 @@ export class Case {
     return this._color;
   }
 
-  set color(value: string) {
-    this._color = value;
-  }
-
   get x(): string {
     return this._x;
-  }
-
-  set x(value: string) {
-    this._x = value;
   }
 
   get y(): string {
     return this._y;
   }
 
-  set y(value: string) {
-    this._y = value;
-  }
-
+  // ensemble get + set => propriété d'un attribut
   get piece(): Piece | undefined {
     return this._piece;
   }

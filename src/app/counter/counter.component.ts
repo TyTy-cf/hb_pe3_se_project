@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class CounterComponent {
 
+  // Pensez bien à ce que vos attributs/méthodes soient PUBLIQUE
+  // afin de les afficher dans le .html
   increment: number = 0;
 
   addIncrement(value: number): void {

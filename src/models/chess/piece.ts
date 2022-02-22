@@ -1,6 +1,12 @@
 
+// Une classe abstraite est une classe qui ne s'instancie pas
+// Elle doit donc impérativement être étendue afin de "s'instancier"
 export abstract class Piece {
 
+  // indice de visibilité
+  // protected : seulement dans la classe mère et ses filles
+  // private : seulement dans la classe courante*
+  // public : partout
   protected _color: string;
   protected _image: string = '';
   protected _name: string = '';
@@ -8,30 +14,22 @@ export abstract class Piece {
   protected constructor(color: string, name: string) {
     this._color = color;
     this._name = name;
-    this.image = 'assets/chess/' + this.name + '-' + this.color + '.png';
+    this._image = 'assets/chess/' + this._name + '-' + this._color + '.png';
   }
 
   get color(): string {
     return this._color;
   }
 
-  set color(value: string) {
-    this._color = value;
-  }
-
   get image(): string {
     return this._image;
-  }
-
-  set image(value: string) {
-    this._image = value;
   }
 
   get name(): string {
     return this._name;
   }
 
-  set name(value: string) {
-    this._name = value;
+  public move(): void {
+    console.log('move de la mère');
   }
 }
