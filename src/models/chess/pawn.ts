@@ -9,6 +9,7 @@ export class Pawn extends Piece {
     super(color, 'pawn');
   }
 
+  // Redéfinition de méthodes
   move(): void {
     console.log('move du pion');
   }

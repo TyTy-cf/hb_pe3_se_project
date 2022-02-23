@@ -7,13 +7,9 @@ export abstract class Piece {
   // protected : seulement dans la classe mère et ses filles
   // private : seulement dans la classe courante*
   // public : partout
-  protected _color: string;
   protected _image: string = '';
-  protected _name: string = '';
 
-  protected constructor(color: string, name: string) {
-    this._color = color;
-    this._name = name;
+  protected constructor(protected _color: string, protected _name: string) {
     this._image = 'assets/chess/' + this._name + '-' + this._color + '.png';
   }
 

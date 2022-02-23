@@ -8,7 +8,7 @@ import {PokedexComponent} from "./pokedex/pokedex.component";
 // component : le component lié au chemin
 const routes: Routes = [
   { path: 'chess', component: ChessComponent },
-  { path: 'counter', component: CounterComponent },
+  { path: 'counter/:initialValue', component: CounterComponent },
   { path: 'pokedex', component: PokedexComponent }
 ];
 

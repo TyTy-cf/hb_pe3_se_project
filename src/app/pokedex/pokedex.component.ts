@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PokedexService} from "../../service/pokedex.service";
 
 @Component({
   selector: 'app-pokedex',
@@ -13,14 +14,16 @@ export class PokedexComponent implements OnInit {
   endingIndex: number = this.displayedByPage;
   currentPage: number = 1;
 
-  constructor() {
-    for(let i = 1; i <= 151; i++) {
-      this.arrayPokemonIndex.push('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+i+'.png');
-    }
-    console.log(this.arrayPokemonIndex);
+  constructor(private pokedexService: PokedexService) {
+    console.log('dans le constructor');
+    console.log(this.pokedexService.pokedex);
   }
 
   ngOnInit(): void {
+    for(let i = 1; i <= 151; i++) {
+      this.arrayPokemonIndex.push('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+i+'.png');
+    }
+    console.log('dans le onInit');
   }
 
   changePage(nb: number = 1) {
