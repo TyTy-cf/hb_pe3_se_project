@@ -15,7 +15,7 @@ export class CounterComponent implements OnInit {
 
   // Via Injection de dépendance on récupère un objet de type ActivatedRoute
   // (Injection de dépendance : création de l'objet géré par Angular
-  constructor(private attributeRoute: ActivatedRoute, private pokedexService: PokedexService) { }
+  constructor(private attributeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     // fonction fléchée ou fonction anonyme
@@ -24,7 +24,6 @@ export class CounterComponent implements OnInit {
       // dans le app.routing-module.ts
       this.increment = parseInt(paramRoute.initialValue);
     });
-    console.log(this.pokedexService.pokedex);
   }
 
   addIncrement(value: number): void {

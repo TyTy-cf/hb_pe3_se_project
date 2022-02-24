@@ -7,6 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { ChessComponent } from './chess/chess.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { PokedexIndexComponent } from './pokedex-index/pokedex-index.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     CounterComponent,
     ChessComponent,
     NavbarComponent,
-    PokedexComponent
+    PokedexComponent,
+    PokedexIndexComponent
   ],
   imports: [
     BrowserModule,

@@ -1,37 +1,43 @@
 
-<div class="d-flex justify-content-between my-3">
-  <button class="btn btn-warning"
-          [disabled]="currentPage === 1"
-          (click)="changePage(-1)"
-  >
-    Previous
-  </button>
-  <button class="btn btn-success"
-          [disabled]="displayedByPage === 9"
-          (click)="changeDisplayed(9)"
-  >
-    9
-  </button>
-  <p class="paginate">{{ currentPage }}</p>
-  <button class="btn btn-success"
-          [disabled]="displayedByPage === 15"
-          (click)="changeDisplayed(15)"
-  >
-    15
-  </button>
-  <button class="btn btn-primary"
-          [disabled]="currentPage === getTotalPage()"
-          (click)="changePage()"
-  >
-    Next
-  </button>
-</div>
+<div *ngIf="currentPokedex; else noPokedex">
+  <div class="d-flex justify-content-between my-3">
+    <button class="btn btn-warning"
+            [disabled]="currentPage === 1"
+            (click)="changePage(-1)"
+    >
+      Previous
+    </button>
+    <button class="btn btn-success"
+            [disabled]="displayedByPage === 9"
+            (click)="changeDisplayed(9)"
+    >
+      9
+    </button>
+    <p class="paginate">{{ currentPage }}</p>
+    <button class="btn btn-success"
+            [disabled]="displayedByPage === 15"
+            (click)="changeDisplayed(15)"
+    >
+      15
+    </button>
+    <button class="btn btn-primary"
+            [disabled]="currentPage === getTotalPage()"
+            (click)="changePage()"
+    >
+      Next
+    </button>
+  </div>
 
-<div class="row">
-  <div [class.col-4]="displayedByPage === 9"
-       [class.col-20]="displayedByPage === 15"
-       *ngFor="let url of arrayPokemonIndex|slice:startingIndex:endingIndex"
-  >
-    <img [src]="url" class="img-fluid" [alt]="url">
+  <div class="row pokedex-background">
+    <div [class.col-4]="displayedByPage === 9"
+         [class.col-20]="displayedByPage === 15"
+         *ngFor="let url of arrayPokemonImage|slice:startingIndex:endingIndex"
+    >
+      <img [src]="url" class="img-fluid" [alt]="url">
+    </div>
   </div>
 </div>
+
+<ng-template #noPokedex>
+  <strong>Aucun Pokédex n'existe pour ce slug</strong>
+</ng-template>

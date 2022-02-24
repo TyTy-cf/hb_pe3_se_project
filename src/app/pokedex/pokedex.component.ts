@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PokedexService} from "../../service/pokedex.service";
+import {ActivatedRoute} from "@angular/router";
+import {Pokedex} from "../../assets/pokemon/pokedex";
 
 @Component({
   selector: 'app-pokedex',
@@ -8,22 +10,35 @@ import {PokedexService} from "../../service/pokedex.service";
 })
 export class PokedexComponent implements OnInit {
 
-  arrayPokemonIndex: string[] = [];
+  arrayPokemonImage: string[] = [];
   displayedByPage: number = 9; // nb pokemons by page
   startingIndex: number = 0;
   endingIndex: number = this.displayedByPage;
   currentPage: number = 1;
+  slug: string = '';
+  currentPokedex: Pokedex|undefined;
 
-  constructor(private pokedexService: PokedexService) {
-    console.log('dans le constructor');
-    console.log(this.pokedexService.pokedex);
+  constructor(
+    private pokedexService: PokedexService,
+    private activatedRoute: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
-    for(let i = 1; i <= 151; i++) {
-      this.arrayPokemonIndex.push('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+i+'.png');
-    }
-    console.log('dans le onInit');
+    this.activatedRoute.params.subscribe((param) => {
+      // slugPokedex = celui déclaré l'app-routing.module.ts
+      this.slug = param.slugPokedex;
+      if (this.slug) {
+        // On récupère un Pokédex en fonction du slug (car chaque slug est unique)
+        this.currentPokedex = this.pokedexService.getPokedexBySlug(this.slug);
+        // "if" sur un objet : on vérifie qu'il n'est pas undefined
+        if (this.currentPokedex) {
+          // le tableau d'image des Pokémons du component
+          // va prendre la valeur de celui de mon objet Pokédex récupéré
+          this.arrayPokemonImage = this.currentPokedex.arrayPokemonImage;
+        }
+      }
+    });
   }
 
   changePage(nb: number = 1) {
@@ -41,7 +56,7 @@ export class PokedexComponent implements OnInit {
   }
 
   getTotalPage(): number {
-    return Math.ceil(this.arrayPokemonIndex.length/this.displayedByPage);
+    return Math.ceil(this.arrayPokemonImage.length/this.displayedByPage);
   }
 
   changeDisplayed(newDisplayedByPage: number): void {

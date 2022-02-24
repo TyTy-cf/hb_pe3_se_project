@@ -1,0 +1,19 @@
+
+<h1>Tous les Pokédex :</h1>
+
+<div *ngIf="pokedexService.arrayPokedex.length > 0; else noData" class="ps-5">
+  <div *ngFor="let pokedex of pokedexService.arrayPokedex">
+    <p class="router-link" routerLink="/pokedex/{{ pokedex.slug }}">
+      <strong>{{ pokedex.name }}</strong>
+      ({{ pokedex.arrayPokemonImage.length }})
+    </p>
+  </div>
+</div>
+
+<!-- ng-template : template masqué par défaut -->
+<!-- il attend d'être appelé pour s'afficher -->
+<ng-template #noData>
+  <div>
+    <p>Aucun Pokédex n'a été trouvé...</p>
+  </div>
+</ng-template>

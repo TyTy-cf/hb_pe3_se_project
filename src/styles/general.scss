@@ -18,3 +18,18 @@ body {
   flex: 0 0 auto;
   width: 20%;
 }
+
+.pokedex-background {
+  background-image: url('../assets/pokedex.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.35);
+  background-blend-mode: lighten;
+}
+
+.router-link {
+  cursor: pointer;
+  &:hover {
+    font-size: 1.1em;
+  }
+}
