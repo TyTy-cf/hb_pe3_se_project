@@ -6,3 +6,25 @@
 .white {
   background-color: $chess-white;
 }
+
+.selected {
+  background-color: $chess-selected;
+}
+
+$size-board: 520px;
+
+.chessboard {
+  width: $size-board;
+  height: $size-board;
+}
+
+.col-12_5 {
+  flex: 0 0 auto;
+  width: $size-board/8;
+  height: $size-board/8;
+
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -13,7 +13,8 @@ export class Case {
     private _color: string,
     private _x: string,
     private _y: string,
-    private _piece: Piece | undefined
+    private _piece: Piece | undefined,
+    private _isSelected: boolean = false
   ) {
     // this._color = color;
     // this._x = x;
@@ -40,5 +41,17 @@ export class Case {
 
   set piece(value: Piece | undefined) {
     this._piece = value;
+  }
+
+  get isSelected(): boolean {
+    return this._isSelected;
+  }
+
+  set isSelected(value: boolean) {
+    this._isSelected = value;
+  }
+
+  toString(): string {
+    return this._x + '-' + this._y + ' (' + this._color + ')';
   }
 }

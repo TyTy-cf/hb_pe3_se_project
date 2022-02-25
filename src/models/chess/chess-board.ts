@@ -18,6 +18,7 @@ export class ChessBoard {
 
   // private board: Array<Case> = new Array<Case>();
   private _board: Case[] = [];
+  private _currentSelectedCase: Case|undefined;
 
   constructor() {
     const xValues: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -78,8 +79,45 @@ export class ChessBoard {
     }
   }
 
+  move(selectedCase: Case): void {
+    if (this._currentSelectedCase === undefined
+      && selectedCase.piece
+      && !selectedCase.isSelected
+    ) {
+      this._currentSelectedCase = selectedCase;
+      selectedCase.isSelected = !selectedCase.isSelected;
+    } else {
+      if (this._currentSelectedCase === selectedCase) {
+        this._currentSelectedCase = undefined;
+        selectedCase.isSelected = !selectedCase.isSelected;
+      }
+    }
+
+    // si, ma case en cours de sélection existe
+    // et selectedCase n'a pas de piece
+    // ou que la couleur de la pièce de selectedCase est différente de la pièce de currentSelectedCase
+    if (this._currentSelectedCase
+      && (!selectedCase.piece
+      ||
+        selectedCase.piece?.color !== this._currentSelectedCase.piece?.color
+      )
+    ) {
+      // Je dis que la pièce de ma case d'arrivée devient la pièce de ma case en cours de sélection
+      selectedCase.piece = this._currentSelectedCase.piece;
+      // je dis que ma case en cours de sélection n'a plus de pièce
+      this._currentSelectedCase.piece = undefined;
+      // qu'elle n'est plus sélectionnée
+      this._currentSelectedCase.isSelected = false;
+      // et qu'il n'y a plus de case en cours de sélection
+      this._currentSelectedCase = undefined;
+    }
+
+  }
+
   get board(): Case[] {
     return this._board;
   }
+
+
 
 }

@@ -5,6 +5,11 @@ body {
   font-size: $default-font-size;
 }
 
+.global-black {
+  background-color: #000;
+  color: white;
+}
+
 @font-face {
   font-family: 'Star Jedi';
   src: url('../assets/font/Starjedi.ttf') format('truetype');

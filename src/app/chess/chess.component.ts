@@ -15,7 +15,7 @@ export class ChessComponent {
   chessBoard: ChessBoard = new ChessBoard();
 
   constructor() {
-
+    // console.log(this.chessBoard.board);
   }
 
 }

@@ -5,9 +5,12 @@
          routerLink="/faction/{{faction.slug}}"
          *ngFor="let faction of factionService.arrayFactions"
     >
-      <h3>{{ faction.name }}</h3>
+      <!-- permet de changer dynamiquement la color de la police -->
+      <h3 [ngStyle]="{'color': faction.color}">
+        {{ faction.name }}
+      </h3>
       <div class="container-image">
-        <img [src]="faction.image">
+        <img [src]="faction.image" [alt]="faction.name">
       </div>
       <!-- équivalent au src="{{ faction.image }}" -->
     </div>

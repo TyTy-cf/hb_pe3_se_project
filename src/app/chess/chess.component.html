@@ -1,4 +1,18 @@
 
 <div class="container">
-
+  <div class="mx-auto row chessboard my-3">
+    <div *ngFor="let boardCase of chessBoard.board"
+         class="col-12_5 {{ boardCase.color }} p-2"
+         (click)="chessBoard.move(boardCase)"
+         [class.selected]="boardCase.isSelected"
+    >
+      <!-- ? : permet d'effectuer le test piece !== undefined -->
+      <!-- et d'afficher le nom de la pièce -->
+      <!-- {{ boardCase.piece?.name }} -->
+      <img [src]="boardCase.piece?.image"
+           [alt]="boardCase.piece?.name"
+           *ngIf="boardCase.piece"
+      >
+    </div>
+  </div>
 </div>
