@@ -8,10 +8,10 @@ export class Pawn extends Piece {
     // et il doit être appelé en premier, TOUJOURS
     super(color, 'pawn');
   }
-
-  // Redéfinition de méthodes
-  move(): void {
-    console.log('move du pion');
-  }
+  //
+  // // Redéfinition de méthodes
+  // move(): void {
+  //   console.log('move du pion');
+  // }
 
 }

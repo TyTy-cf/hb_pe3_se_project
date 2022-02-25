@@ -1,6 +1,8 @@
 
 // Une classe abstraite est une classe qui ne s'instancie pas
 // Elle doit donc impérativement être étendue afin de "s'instancier"
+import {Case} from "./case";
+
 export abstract class Piece {
 
   // indice de visibilité
@@ -36,7 +38,7 @@ export abstract class Piece {
     return this._name;
   }
 
-  public move(): void {
+  public move(selectedCase: Case): void {
     console.log('move de la mère');
   }
 }
