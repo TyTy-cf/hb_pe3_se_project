@@ -5,6 +5,11 @@ body {
   font-size: $default-font-size;
 }
 
+@font-face {
+  font-family: 'Star Jedi';
+  src: url('../assets/font/Starjedi.ttf') format('truetype');
+}
+
 .paginate {
   height: 44px;
   width: 44px;
@@ -25,6 +30,35 @@ body {
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.35);
   background-blend-mode: lighten;
+}
+
+.galaxy {
+  background-image: url('../assets/starships.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.25);
+  background-blend-mode: lighten;
+  font-size: 1.1rem;
+  color: $default-star-wars-color;
+  font-family: 'Star Jedi', serif;
+}
+
+.card-faction {
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .container-image {
+    height: 240px;
+
+    > img {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
 .router-link {

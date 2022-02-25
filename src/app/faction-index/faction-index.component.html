@@ -1,0 +1,21 @@
+
+<div *ngIf="factionService.arrayFactions.length > 0; else noFaction">
+  <div class="row my-3">
+    <div class="col-lg-4 col-md-6 card-faction"
+         routerLink="/faction/{{faction.slug}}"
+         *ngFor="let faction of factionService.arrayFactions"
+    >
+      <h3>{{ faction.name }}</h3>
+      <div class="container-image">
+        <img [src]="faction.image">
+      </div>
+      <!-- équivalent au src="{{ faction.image }}" -->
+    </div>
+  </div>
+</div>
+
+<ng-template #noFaction>
+  <p>
+    Aucune faction n'a a été trouvé
+  </p>
+</ng-template>

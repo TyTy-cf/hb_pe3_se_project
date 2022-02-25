@@ -8,6 +8,8 @@ import { ChessComponent } from './chess/chess.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokedexIndexComponent } from './pokedex-index/pokedex-index.component';
+import { FactionIndexComponent } from './faction-index/faction-index.component';
+import { FactionDetailComponent } from './faction-detail/faction-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { PokedexIndexComponent } from './pokedex-index/pokedex-index.component';
     ChessComponent,
     NavbarComponent,
     PokedexComponent,
-    PokedexIndexComponent
+    PokedexIndexComponent,
+    FactionIndexComponent,
+    FactionDetailComponent
   ],
   imports: [
     BrowserModule,

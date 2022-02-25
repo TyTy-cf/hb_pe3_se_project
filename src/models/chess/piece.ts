@@ -9,7 +9,18 @@ export abstract class Piece {
   // public : partout
   protected _image: string = '';
 
-  protected constructor(protected _color: string, protected _name: string) {
+  // Equivalent du constructeur en-dessous
+
+  // protected _color: string = '';
+  //
+  // protected constructor(color: string) {
+  //   this._color = color;
+  // }
+
+  protected constructor(
+    protected _color: string,
+    protected _name: string
+  ) {
     this._image = 'assets/chess/' + this._name + '-' + this._color + '.png';
   }
 

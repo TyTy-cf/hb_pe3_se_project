@@ -4,6 +4,8 @@ import {ChessComponent} from "./chess/chess.component";
 import {CounterComponent} from "./counter/counter.component";
 import {PokedexIndexComponent} from "./pokedex-index/pokedex-index.component";
 import {PokedexComponent} from "./pokedex/pokedex.component";
+import {FactionIndexComponent} from "./faction-index/faction-index.component";
+import {FactionDetailComponent} from "./faction-detail/faction-detail.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'counter/:initialValue', component: CounterComponent },
   { path: 'pokedex', component: PokedexIndexComponent },
   { path: 'pokedex/:slugPokedex', component: PokedexComponent },
+  { path: 'faction', component: FactionIndexComponent },
+  { path: 'faction/:slugFaction', component: FactionDetailComponent },
 ];
 
 @NgModule({

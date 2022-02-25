@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {PokedexService} from "../../service/pokedex.service";
 
 @Component({
   selector: 'app-counter',
