@@ -12,6 +12,7 @@ import { FactionIndexComponent } from './faction-index/faction-index.component';
 import { FactionDetailComponent } from './faction-detail/faction-detail.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AccountComponent } from './account/account.component';
     PokedexIndexComponent,
     FactionIndexComponent,
     FactionDetailComponent,
-    AccountComponent
+    AccountComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

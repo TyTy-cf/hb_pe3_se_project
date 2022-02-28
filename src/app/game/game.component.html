@@ -1,0 +1,18 @@
+
+<h1 class="text-center my-4">Les jeux</h1>
+
+<div class="row" *ngIf="gameApiPlatformRequest; else spinner">
+  <div class="col-lg-3 col-md-4 col-sm-6 card-game mb-4" *ngFor="let game of gameApiPlatformRequest['hydra:member']">
+    <div class="container-image">
+      <img [src]="game.thumbnailCover" [alt]="game.name">
+      <div class="container-price">
+          {{game.price}}€
+      </div>
+    </div>
+    <p class="game-title text-center">{{game.name}}</p>
+  </div>
+</div>
+
+<ng-template #spinner>
+  Récupération des jeux en cours...
+</ng-template>

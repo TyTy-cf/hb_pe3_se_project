@@ -1,0 +1,38 @@
+
+.card-game {
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+  }
+
+  .container-image {
+    height: 300px;
+    position: relative;
+
+    > img {
+      height: 100%;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .container-price {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0.2em 0.4em;
+      border-top-left-radius: 10px;
+      font-weight: 600;
+      font-size: 1.2em;
+      color: white;
+      background-color: $background-color-price;
+    }
+  }
+
+  .game-title {
+    font-size: 1em;
+    font-weight: 500;
+    color: $chess-black;
+  }
+}

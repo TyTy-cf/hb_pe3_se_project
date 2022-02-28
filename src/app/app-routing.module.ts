@@ -7,6 +7,7 @@ import {PokedexComponent} from "./pokedex/pokedex.component";
 import {FactionIndexComponent} from "./faction-index/faction-index.component";
 import {FactionDetailComponent} from "./faction-detail/faction-detail.component";
 import {AccountComponent} from "./account/account.component";
+import {GameComponent} from "./game/game.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'faction', component: FactionIndexComponent },
   { path: 'faction/:slugFaction', component: FactionDetailComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'game', component: GameComponent },
 ];
 
 @NgModule({
