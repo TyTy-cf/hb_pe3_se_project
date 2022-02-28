@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Faction} from "../models/star_wars/faction";
-import {Pokedex} from "../assets/pokemon/pokedex";
 
 @Injectable({
   providedIn: 'root'

@@ -36,6 +36,17 @@ export class StarshipService {
     //   }
     // }
     // return tmpArray;
+
+    // Exemple de suppression dans un tableau via la fonction filter
+    // this._arrayStarships = this._arrayStarships.filter((starship) =>
+    //   starship.faction !== faction
+    // );
+
+    // filter prends en paramètre une fonction anonyme (fléchée)
+    // le paramètre est le nom donné à la valeur de l'itération
+    // (ici c'est le même que pour mon for..of du dessus)
+    // et dans la fonction anonyme, on indique la condition
+    // pour mettre les éléments dans le nouveau tableau
     return this._arrayStarships.filter((starship) =>
       starship.faction === faction
     );

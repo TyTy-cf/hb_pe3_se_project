@@ -9,6 +9,7 @@
       <!-- ? : permet d'effectuer le test piece !== undefined -->
       <!-- et d'afficher le nom de la pièce -->
       <!-- {{ boardCase.piece?.name }} -->
+      <!-- board.piece !== undefined ? board.piece.name : '' -->
       <img [src]="boardCase.piece?.image"
            [alt]="boardCase.piece?.name"
            *ngIf="boardCase.piece"

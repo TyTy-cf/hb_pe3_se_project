@@ -51,6 +51,8 @@ export class Case {
     this._isSelected = value;
   }
 
+  // toString : nom par défaut de la méthode
+  // permettant d'afficher un objet sous forme de string
   toString(): string {
     return this._x + '-' + this._y + ' (' + this._color + ')';
   }

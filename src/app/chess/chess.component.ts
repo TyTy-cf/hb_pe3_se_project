@@ -14,8 +14,4 @@ export class ChessComponent {
   // de type ChessBoard, que j'instancie
   chessBoard: ChessBoard = new ChessBoard();
 
-  constructor() {
-    // console.log(this.chessBoard.board);
-  }
-
 }

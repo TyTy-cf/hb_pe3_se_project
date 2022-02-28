@@ -85,6 +85,8 @@ export class ChessBoard {
       && !selectedCase.isSelected
     ) {
       this._currentSelectedCase = selectedCase;
+      // à gauche du égal : set appelé implicitement
+      // à droite du égal : get appelé implicitement
       selectedCase.isSelected = !selectedCase.isSelected;
     } else {
       if (this._currentSelectedCase === selectedCase) {
