@@ -1,0 +1,21 @@
+
+<h1>Les comptes</h1>
+
+<table class="table table-striped table-hover" *ngIf="accountPlatformRequest">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Email</th>
+      <th>Porte-feuille</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accountPlatformRequest['hydra:member']">
+      <th>{{account.name}}</th>
+      <th>{{account.nickname}}</th>
+      <th>{{account.email}}</th>
+      <th>{{account.wallet}}</th>
+    </tr>
+  </tbody>
+</table>

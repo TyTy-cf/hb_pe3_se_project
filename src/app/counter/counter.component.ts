@@ -47,6 +47,8 @@ export class CounterComponent implements OnInit {
     // for (const argument in this.chessBoard.board) {
     //   console.log(argument);
     // }
+
+
   }
 
   addIncrement(value: number): void {
