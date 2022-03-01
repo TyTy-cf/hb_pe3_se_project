@@ -1,0 +1,28 @@
+
+<div *ngIf="account; else noAccount">
+  <h2>Mon profil</h2>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Nom</th>
+        <td>{{account.name}}</td>
+      </tr>
+      <tr>
+        <th>Pseudo</th>
+        <td>{{account.nickname}}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{account.email}}</td>
+      </tr>
+      <tr>
+        <th>Solde</th>
+        <td>{{account.wallet}}€ </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noAccount>
+  <div>Aucun compte trouvé</div>
+</ng-template>

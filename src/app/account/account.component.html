@@ -1,21 +1,46 @@
 
 <h1>Les comptes</h1>
 
-<table class="table table-striped table-hover" *ngIf="accountPlatformRequest">
-  <thead>
+<div *ngIf="accountPlatformRequest">
+
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-danger" (click)="changePage(accountPlatformRequest['hydra:view']['hydra:first'])">
+      First
+    </button>
+    <button class="btn btn-warning" (click)="changePage(accountPlatformRequest['hydra:view']['hydra:previous'])"
+            [disabled]="!accountPlatformRequest['hydra:view']['hydra:previous']"
+    >
+      Previous
+    </button>
+    <button class="btn btn-info" (click)="changePage(accountPlatformRequest['hydra:view']['hydra:next'])"
+            [disabled]="!accountPlatformRequest['hydra:view']['hydra:next']"
+    >
+      Next
+    </button>
+    <button class="btn btn-success" (click)="changePage(accountPlatformRequest['hydra:view']['hydra:last'])">
+      Last
+    </button>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
     <tr>
       <th>Name</th>
       <th>Nickname</th>
       <th>Email</th>
-      <th>Porte-feuille</th>
+      <th>Solde</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let account of accountPlatformRequest['hydra:member']">
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accountPlatformRequest['hydra:member']"
+        routerLink="/account/{{account.id}}"
+        class="router-link tr"
+    >
       <th>{{account.name}}</th>
       <th>{{account.nickname}}</th>
       <th>{{account.email}}</th>
-      <th>{{account.wallet}}</th>
+      <th>{{account.wallet}}€</th>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

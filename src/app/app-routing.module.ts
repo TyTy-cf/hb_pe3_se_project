@@ -8,6 +8,7 @@ import {FactionIndexComponent} from "./faction-index/faction-index.component";
 import {FactionDetailComponent} from "./faction-detail/faction-detail.component";
 import {AccountComponent} from "./account/account.component";
 import {GameComponent} from "./game/game.component";
+import {AccountDetailComponent} from "./account-detail/account-detail.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'faction', component: FactionIndexComponent },
   { path: 'faction/:slugFaction', component: FactionDetailComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'account/:idAccount', component: AccountDetailComponent },
   { path: 'game', component: GameComponent },
 ];
 

@@ -17,7 +17,12 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
     this.apiRequestService.getAccounts().subscribe((jsonResponse) => {
       this.accountPlatformRequest = jsonResponse;
-      console.log(this.accountPlatformRequest);
+    });
+  }
+
+  changePage(url: string): void {
+    this.apiRequestService.getAccounts(url).subscribe((jsonResponse) => {
+      this.accountPlatformRequest = jsonResponse;
     });
   }
 

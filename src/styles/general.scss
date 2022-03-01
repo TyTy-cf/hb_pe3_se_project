@@ -69,6 +69,8 @@ body {
 .router-link {
   cursor: pointer;
   &:hover {
-    font-size: 1.1em;
+    &:not(tr) {
+      font-size: 1.1em;
+    }
   }
 }

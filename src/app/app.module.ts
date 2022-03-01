@@ -13,6 +13,7 @@ import { FactionDetailComponent } from './faction-detail/faction-detail.componen
 import {HttpClientModule} from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
 import { GameComponent } from './game/game.component';
+import { AccountDetailComponent } from './account-detail/account-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GameComponent } from './game/game.component';
     FactionIndexComponent,
     FactionDetailComponent,
     AccountComponent,
-    GameComponent
+    GameComponent,
+    AccountDetailComponent
   ],
   imports: [
     BrowserModule,
