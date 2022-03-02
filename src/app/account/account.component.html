@@ -24,23 +24,32 @@
 
   <table class="table table-striped table-hover">
     <thead>
-    <tr>
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Email</th>
-      <th>Solde</th>
-    </tr>
+      <tr>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Solde</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let account of accountPlatformRequest['hydra:member']"
-        routerLink="/account/{{account.id}}"
-        class="router-link tr"
-    >
-      <th>{{account.name}}</th>
-      <th>{{account.nickname}}</th>
-      <th>{{account.email}}</th>
-      <th>{{account.wallet}}€</th>
-    </tr>
+      <tr *ngFor="let account of accountPlatformRequest['hydra:member']"
+          routerLink="/account/{{account.id}}"
+          class="router-link tr"
+      >
+        <th>{{account.name}}</th>
+        <th>{{account.nickname}}</th>
+        <th>{{account.email}}</th>
+        <th>{{account.wallet}}€</th>
+        <th>
+          <button class="btn btn-dark" (click)="displayAccount(account)">
+            Voir plus
+          </button>
+        </th>
+      </tr>
+      <tr [hidden]="!account.isVisible" *ngFor="let account of accountPlatformRequest['hydra:member']">
+<!--        <app-account-detail [account]="account"></app-account-detail>-->
+      </tr>
     </tbody>
   </table>
 </div>

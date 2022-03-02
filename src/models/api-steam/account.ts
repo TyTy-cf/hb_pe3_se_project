@@ -6,6 +6,7 @@ export class Account {
   private _email: string = '';
   private _nickname: string = '';
   private _wallet: number = 0;
+  private _isVisible: boolean = false;
 
   get id(): number {
     return this._id;
@@ -45,5 +46,13 @@ export class Account {
 
   set wallet(value: number) {
     this._wallet = value;
+  }
+
+  get isVisible(): boolean {
+    return this._isVisible;
+  }
+
+  set isVisible(value: boolean) {
+    this._isVisible = value;
   }
 }

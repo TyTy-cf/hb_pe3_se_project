@@ -9,10 +9,12 @@ import {FactionDetailComponent} from "./faction-detail/faction-detail.component"
 import {AccountComponent} from "./account/account.component";
 import {GameComponent} from "./game/game.component";
 import {AccountDetailComponent} from "./account-detail/account-detail.component";
+import {MainMultTableComponent} from "./main-mult-table/main-mult-table.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
 const routes: Routes = [
+  { path: '', component: MainMultTableComponent },
   { path: 'chess', component: ChessComponent },
   { path: 'counter/:initialValue', component: CounterComponent },
   { path: 'pokedex', component: PokedexIndexComponent },

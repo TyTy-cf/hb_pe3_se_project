@@ -1,6 +1,6 @@
 
 <div *ngIf="faction; else noFaction">
-  <h2>Les vaisseaux {{ faction.name }}</h2>
+  <h2 class="text-center my-5">Les vaisseaux {{ faction.name }}</h2>
 
   <div class="row" *ngIf="arrayStarships.length > 0; else noStarships">
       <div class="col-lg-4 col-md-6 card-faction"
@@ -8,14 +8,14 @@
       >
         <h3>{{ starship.name }}</h3>
         <div class="container-image">
-          <img [src]="starship.image">
+          <img [src]="starship.image" [alt]="starship.name">
         </div>
     </div>
   </div>
 </div>
 
 <ng-template #noFaction>
-  <p>Aucune faction ne correspond à ce slug</p>
+  <p class="text-center">Sélectionnez une faction pour en voir les vaisseaux</p>
 </ng-template>
 
 <ng-template #noStarships>

@@ -26,4 +26,8 @@ export class AccountComponent implements OnInit {
     });
   }
 
+  displayAccount(account: Account) {
+    account.isVisible = !account.isVisible;
+    console.log(account);
+  }
 }

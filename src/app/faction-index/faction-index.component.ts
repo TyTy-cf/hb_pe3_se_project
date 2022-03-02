@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import {FactionService} from "../../service/faction.service";
+import {Faction} from "../../models/star_wars/faction";
 
 @Component({
   selector: 'app-faction-index',
@@ -9,6 +10,7 @@ import {FactionService} from "../../service/faction.service";
 export class FactionIndexComponent implements AfterViewInit, OnDestroy {
 
   body: HTMLBodyElement|null = document.querySelector('body');
+  selectedFaction: Faction|undefined;
 
   constructor(public factionService: FactionService) { }
 

@@ -14,6 +14,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { AccountComponent } from './account/account.component';
 import { GameComponent } from './game/game.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { MultTableComponent } from './mult-table/mult-table.component';
+import { MainMultTableComponent } from './main-mult-table/main-mult-table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
     FactionDetailComponent,
     AccountComponent,
     GameComponent,
-    AccountDetailComponent
+    AccountDetailComponent,
+    MultTableComponent,
+    MainMultTableComponent
   ],
   imports: [
     BrowserModule,

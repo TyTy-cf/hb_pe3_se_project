@@ -2,8 +2,8 @@
 <div *ngIf="factionService.arrayFactions.length > 0; else noFaction">
   <div class="row my-3">
     <div class="col-lg-4 col-md-6 card-faction"
-         routerLink="/faction/{{faction.slug}}"
          *ngFor="let faction of factionService.arrayFactions"
+         (click)="selectedFaction = faction"
     >
       <!-- permet de changer dynamiquement la color de la police -->
       <h3 [ngStyle]="{'color': faction.color}">
@@ -14,6 +14,10 @@
       </div>
       <!-- équivalent au src="{{ faction.image }}" -->
     </div>
+  </div>
+
+  <div class="mt-5">
+    <app-faction-detail [faction]="selectedFaction"></app-faction-detail>
   </div>
 </div>
 
