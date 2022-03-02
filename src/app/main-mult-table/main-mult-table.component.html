@@ -1,6 +1,8 @@
 
 <div class="row">
   <div class="col-20 mb-5" *ngFor="let digit of arrayMultiplicationTable">
+    <!-- [numberTable] => nom de l'attribut dans la fille qui a la décoration @Input() -->
+    <!-- on doit lui affecter une valeur, ici on lui passe la valeur d'itération de ma boucle -->
     <app-mult-table [numberTable]="digit"></app-mult-table>
   </div>
 </div>
