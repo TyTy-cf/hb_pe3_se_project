@@ -1,0 +1,10 @@
+
+<a class="text-decoration-none" *ngIf="game" routerLink="">
+  <div class="container-image">
+    <img [src]="game.thumbnailCover" [alt]="game.name">
+    <div class="container-price">
+      {{game.price}}€
+    </div>
+  </div>
+  <p class="game-title text-center">{{game.name}}</p>
+</a>

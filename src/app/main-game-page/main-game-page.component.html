@@ -1,0 +1,38 @@
+
+<div class="my-5 d-flex align-items-center justify-content-between">
+  <div>
+    <h1>Les jeux du moment</h1>
+  </div>
+  <div>
+    <a routerLink="/game" class="btn-steamish">
+      View all
+    </a>
+  </div>
+</div>
+
+<div class="row" *ngIf="games.length > 0; else spinner">
+  <div class="col-lg-3 col-md-4 col-sm-6 card-game mb-4"
+       *ngFor="let game of games|slice:0:8"
+  >
+    <app-card-game [game]="game"></app-card-game>
+  </div>
+</div>
+
+
+<div class="my-5">
+  <div>
+    <h1>Les dernières sorties</h1>
+  </div>
+</div>
+
+<div class="row" *ngIf="gamesByPublishedAt.length > 0; else spinner">
+  <div class="col-lg-3 col-md-4 col-sm-6 card-game mb-4"
+       *ngFor="let game of gamesByPublishedAt|slice:0:8"
+  >
+    <app-card-game [game]="game"></app-card-game>
+  </div>
+</div>
+
+<ng-template #spinner>
+  Récupération des jeux en cours...
+</ng-template>

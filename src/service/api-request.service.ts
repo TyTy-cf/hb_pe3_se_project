@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {ApiPlatformRequest} from "../models/api-steam/api-platform-request";
 import {Account} from "../models/api-steam/account";
 import {Game} from "../models/api-steam/game";
+import {sprintf} from "sprintf-js";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class ApiRequestService {
   private urlAccountById: string = '/api/accounts/';
 
   private urlGames: string = '/api/games';
+  private urlFiltered: string = this.rawUrl + this.urlGames + '?page=1&order%5B';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,8 +34,9 @@ export class ApiRequestService {
     return this.httpClient.get<ApiPlatformRequest<Game>>(this.rawUrl + urlPagination);
   }
 
-  // getLibrariesByAccountId(id: string): Observable<any> {
-  //
-  // }
+  getGamesByFilters(filteredField: string, orderBy: string = 'asc'): Observable<ApiPlatformRequest<Game>> {
+    console.log(this.urlFiltered + filteredField + '%5D=' + orderBy);
+    return this.httpClient.get<ApiPlatformRequest<Game>>(this.urlFiltered + filteredField + '%5D=' + orderBy);
+  }
 
 }
