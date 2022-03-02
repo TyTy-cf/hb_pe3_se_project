@@ -33,7 +33,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let account of accountPlatformRequest['hydra:member']">
-        <tr (click)="displayAccount(account)">
+        <tr (click)="account.isVisible = !account.isVisible">
           <th>{{account.name}}</th>
           <th>{{account.nickname}}</th>
           <th>{{account.email}}</th>

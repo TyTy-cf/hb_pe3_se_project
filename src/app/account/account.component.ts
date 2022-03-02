@@ -25,9 +25,4 @@ export class AccountComponent implements OnInit {
       this.accountPlatformRequest = jsonResponse;
     });
   }
-
-  displayAccount(account: Account) {
-    account.isVisible = !account.isVisible;
-    console.log(account);
-  }
 }
