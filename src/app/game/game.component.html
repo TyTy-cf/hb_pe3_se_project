@@ -1,13 +1,38 @@
 
-<h1 class="text-center my-4">Les jeux</h1>
 
-<div class="row" *ngIf="gameApiPlatformRequest; else spinner">
-  <div class="col-lg-3 col-md-4 col-sm-6 card-game mb-4"
-       *ngFor="let game of gameApiPlatformRequest['hydra:member']"
-  >
-    <app-card-game [game]="game"></app-card-game>
+<div *ngIf="gameApiPlatformRequest; else spinner">
+
+  <h1 class="text-center">Les jeux</h1>
+
+  <div class="d-flex justify-content-between my-4">
+    <button class="btn btn-danger" (click)="changePage(gameApiPlatformRequest['hydra:view']['hydra:first'])">
+      First
+    </button>
+    <button class="btn btn-warning" (click)="changePage(gameApiPlatformRequest['hydra:view']['hydra:previous'])"
+            [disabled]="!gameApiPlatformRequest['hydra:view']['hydra:previous']"
+    >
+      Previous
+    </button>
+    <button class="btn btn-info" (click)="changePage(gameApiPlatformRequest['hydra:view']['hydra:next'])"
+            [disabled]="!gameApiPlatformRequest['hydra:view']['hydra:next']"
+    >
+      Next
+    </button>
+    <button class="btn btn-success" (click)="changePage(gameApiPlatformRequest['hydra:view']['hydra:last'])">
+      Last
+    </button>
   </div>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 card-game mb-4"
+         *ngFor="let game of gameApiPlatformRequest['hydra:member']"
+    >
+      <app-card-game [game]="game"></app-card-game>
+    </div>
+  </div>
+
 </div>
+
 
 <ng-template #spinner>
   Récupération des jeux en cours...

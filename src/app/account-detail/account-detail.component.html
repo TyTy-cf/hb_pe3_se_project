@@ -21,6 +21,16 @@
       </tr>
     </tbody>
   </table>
+
+  <div *ngIf="libraries.length > 0">
+    <h2>Ses jeux</h2>
+    <div class="row">
+      <div class="col-3 card-game" *ngFor="let librarie of libraries">
+        <app-card-game [game]="librarie.objectGame" [displayPrice]="false"></app-card-game>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <ng-template #noAccount>

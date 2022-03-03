@@ -2,7 +2,7 @@
 <a class="text-decoration-none" *ngIf="game" routerLink="/game/{{game.id}}">
   <div class="container-image">
     <img [src]="game.thumbnailCover" [alt]="game.name">
-    <div class="container-price">
+    <div class="container-price" [hidden]="!displayPrice" >
       {{game.price}}€
     </div>
   </div>

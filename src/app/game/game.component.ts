@@ -22,6 +22,12 @@ export class GameComponent implements OnInit {
     });
   }
 
+  changePage(url: string): void {
+    this.apiRequestService.getGames(url).subscribe((jsonResponse) => {
+      this.gameApiPlatformRequest = jsonResponse;
+    });
+  }
+
   // via un (changes) sur un input on call cette fonction
   searchGames(gameName: string): void {
     if (this.gameApiPlatformRequest) {

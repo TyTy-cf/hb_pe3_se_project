@@ -11,4 +11,10 @@ export class CardGameComponent {
   @Input()
   game: Game|undefined;
 
+  @Input()
+  displayPrice: boolean = true;
+
+  @Input()
+  hasInstalled: boolean = false;
+
 }
