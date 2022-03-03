@@ -36,3 +36,52 @@
     color: $chess-black;
   }
 }
+
+
+.main-container {
+  background-color: #eee;
+  border-radius: 20px;
+  margin-top: 1.2em;
+
+  .game-detail-container {
+    padding: 1.2em;
+
+    .container-image {
+      height: 400px;
+      width: 100%;
+
+      > img {
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &.detail-price {
+      font-size: 2em;
+      color: whitesmoke;
+      background-color: black;
+    }
+
+    &.r-top {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      background-color: white;
+    }
+
+    &.r-bottom {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+
+}
+
+.p-12 {
+  padding: 1.2em;
+}
+
+.grey {
+  background-color: #eee;
+}
+

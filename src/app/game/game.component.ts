@@ -11,13 +11,22 @@ import {Game} from "../../models/api-steam/game";
 export class GameComponent implements OnInit {
 
   gameApiPlatformRequest: ApiPlatformRequest<Game>|undefined;
+  displayedGames: Game[] = [];
 
   constructor(private apiRequestService: ApiRequestService) { }
 
   ngOnInit(): void {
     this.apiRequestService.getGames().subscribe((jsonResponse) => {
       this.gameApiPlatformRequest = jsonResponse;
+      this.displayedGames = this.gameApiPlatformRequest["hydra:member"];
     });
+  }
+
+  // via un (changes) sur un input on call cette fonction
+  searchGames(gameName: string): void {
+    if (this.gameApiPlatformRequest) {
+      this.displayedGames = this.gameApiPlatformRequest["hydra:member"].filter((game) => game.name.includes(gameName));
+    }
   }
 
 }

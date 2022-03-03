@@ -1,0 +1,25 @@
+
+<div class="row main-container" *ngIf="game; else noGame">
+  <div class="col-3 game-detail-container">
+    <div class="container-image">
+      <img [src]="game.thumbnailCover" [alt]="game.name">
+    </div>
+  </div>
+  <div class="col-9 p-12">
+    <div class="game-detail-container r-top">
+      <h1 class="text-center">{{game.name}}</h1>
+      <p>Sorti le
+        <strong>
+          {{game.publishedAt|date:'dd/MM/yyyy'}}
+        </strong>
+      </p>
+    </div>
+    <div class="game-detail-container detail-price r-bottom">
+      {{game.price}}€
+    </div>
+  </div>
+</div>
+
+<ng-template #noGame>
+  Aucun jeu ne correspond à cet ID
+</ng-template>

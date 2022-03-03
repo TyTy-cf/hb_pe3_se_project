@@ -28,6 +28,7 @@
         <th>Name</th>
         <th>Nickname</th>
         <th>Email</th>
+        <th>Nombre de jeux</th>
         <th>Solde</th>
       </tr>
     </thead>
@@ -37,6 +38,7 @@
           <th>{{account.name}}</th>
           <th>{{account.nickname}}</th>
           <th>{{account.email}}</th>
+          <th class="fw-bold">({{account.libraries.length}})</th>
           <th>{{account.wallet}}€</th>
         </tr>
         <tr [hidden]="!account.isVisible">

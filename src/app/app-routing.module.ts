@@ -11,6 +11,7 @@ import {GameComponent} from "./game/game.component";
 import {AccountDetailComponent} from "./account-detail/account-detail.component";
 import {MainMultTableComponent} from "./main-mult-table/main-mult-table.component";
 import {MainGamePageComponent} from "./main-game-page/main-game-page.component";
+import {GameDetailComponent} from "./game-detail/game-detail.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'account/:idAccount', component: AccountDetailComponent },
   { path: 'game', component: GameComponent },
+  { path: 'game/:idGame', component: GameDetailComponent },
   { path: '', component: MainGamePageComponent },
 ];
 

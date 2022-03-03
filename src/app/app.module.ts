@@ -18,6 +18,7 @@ import { MultTableComponent } from './mult-table/mult-table.component';
 import { MainMultTableComponent } from './main-mult-table/main-mult-table.component';
 import { CardGameComponent } from './card-game/card-game.component';
 import { MainGamePageComponent } from './main-game-page/main-game-page.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MainGamePageComponent } from './main-game-page/main-game-page.component
     MultTableComponent,
     MainMultTableComponent,
     CardGameComponent,
-    MainGamePageComponent
+    MainGamePageComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule,
