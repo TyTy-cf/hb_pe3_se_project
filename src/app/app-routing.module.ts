@@ -12,6 +12,7 @@ import {AccountDetailComponent} from "./account-detail/account-detail.component"
 import {MainMultTableComponent} from "./main-mult-table/main-mult-table.component";
 import {MainGamePageComponent} from "./main-game-page/main-game-page.component";
 import {GameDetailComponent} from "./game-detail/game-detail.component";
+import {ApiPokedexComponent} from "./api-pokedex/api-pokedex.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'account/:idAccount', component: AccountDetailComponent },
   { path: 'game', component: GameComponent },
   { path: 'game/:idGame', component: GameDetailComponent },
+  { path: 'api/pokedex', component: ApiPokedexComponent },
   { path: '', component: MainGamePageComponent },
 ];
 

@@ -19,6 +19,7 @@ import { MainMultTableComponent } from './main-mult-table/main-mult-table.compon
 import { CardGameComponent } from './card-game/card-game.component';
 import { MainGamePageComponent } from './main-game-page/main-game-page.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { ApiPokedexComponent } from './api-pokedex/api-pokedex.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     MainMultTableComponent,
     CardGameComponent,
     MainGamePageComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    ApiPokedexComponent
   ],
   imports: [
     BrowserModule,

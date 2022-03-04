@@ -90,5 +90,4 @@ export class ApiRequestService {
     return this.httpClient.get<ApiPlatformRequest<Librarie>>(sprintf(this.urlLibrariesByAccountId, id));
   }
 
-
 }
