@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+
+<form (ngSubmit)="maSuperMethodeDeSoumissionDeFormulaire()" #myForm="ngForm">
+
+  <div class="col-6 mx-auto mt-3">
+    <label class="form-label">Langue</label>
+    <input  class="form-control"
+            type="text"
+            name="totoFaitDuVelo"
+            #totoFaitDuVelo="ngModel"
+            [(ngModel)]="language.name"
+            [class.is-invalid]="totoFaitDuVelo.invalid && totoFaitDuVelo.touched"
+            [class.is-valid]="totoFaitDuVelo.valid"
+            required
+            minlength="4"
+    >
+    <div *ngIf="totoFaitDuVelo.invalid && (totoFaitDuVelo.touched || totoFaitDuVelo.dirty)">
+      <div *ngIf="totoFaitDuVelo.errors?.required" class="text-danger">
+        La langue est obligatoire
+      </div>
+      <div *ngIf="totoFaitDuVelo.errors?.minlength" class="text-danger">
+        La langue doit faire au moins 4 caractères
+      </div>
+    </div>
+  </div>
+  <div class="col-6 mx-auto mt-3">
+    <button class="btn btn-steamish" type="submit" [disabled]="myForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>

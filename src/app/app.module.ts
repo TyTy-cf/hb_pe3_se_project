@@ -20,6 +20,8 @@ import { CardGameComponent } from './card-game/card-game.component';
 import { MainGamePageComponent } from './main-game-page/main-game-page.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ApiPokedexComponent } from './api-pokedex/api-pokedex.component';
+import {FormsModule} from "@angular/forms";
+import { FormLanguageComponent } from './form-language/form-language.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,14 @@ import { ApiPokedexComponent } from './api-pokedex/api-pokedex.component';
     CardGameComponent,
     MainGamePageComponent,
     GameDetailComponent,
-    ApiPokedexComponent
+    ApiPokedexComponent,
+    FormLanguageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ import {MainMultTableComponent} from "./main-mult-table/main-mult-table.componen
 import {MainGamePageComponent} from "./main-game-page/main-game-page.component";
 import {GameDetailComponent} from "./game-detail/game-detail.component";
 import {ApiPokedexComponent} from "./api-pokedex/api-pokedex.component";
+import {FormLanguageComponent} from "./form-language/form-language.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'game/:idGame', component: GameDetailComponent },
   { path: 'api/pokedex', component: ApiPokedexComponent },
   { path: '', component: MainGamePageComponent },
+  { path: 'form/language', component: FormLanguageComponent },
 ];
 
 @NgModule({
