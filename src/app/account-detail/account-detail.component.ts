@@ -14,6 +14,7 @@ export class AccountDetailComponent implements OnInit {
   idAccount: string = '';
   account: Account|undefined;
   libraries: Librarie[] = [];
+  formIsNotVisible: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,

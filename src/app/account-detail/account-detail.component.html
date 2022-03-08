@@ -22,6 +22,12 @@
     </tbody>
   </table>
 
+  <div *ngIf="formIsNotVisible; else form">
+    <button class="btn btn-steamish" (click)="formIsNotVisible = !formIsNotVisible">
+      Modifier
+    </button>
+  </div>
+
   <div *ngIf="libraries.length > 0">
     <h2>Ses jeux</h2>
     <div class="row">
@@ -35,4 +41,11 @@
 
 <ng-template #noAccount>
   <div>Aucun compte trouvé</div>
+</ng-template>
+
+<ng-template #form>
+  <button class="btn btn-steamish" (click)="formIsNotVisible = !formIsNotVisible">
+    Annuler
+  </button>
+  <app-form-account *ngIf="account" [account]="account"></app-form-account>
 </ng-template>

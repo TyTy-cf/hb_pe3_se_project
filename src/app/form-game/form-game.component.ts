@@ -11,6 +11,7 @@ export class FormGameComponent implements OnInit {
 
   formGame: FormGroup;
   game: Game = new Game();
+  nameExists: boolean = false;
 
   constructor() {
     // FormControl : ça représente un input de l'html, mais en code
@@ -20,6 +21,11 @@ export class FormGameComponent implements OnInit {
       {
         _name: new FormControl(
           this.game.name, [
+            Validators.required
+          ]
+        ),
+        _thumbnailCover: new FormControl(
+          this.game.thumbnailCover, [
             Validators.required
           ]
         )
@@ -34,5 +40,17 @@ export class FormGameComponent implements OnInit {
     return <AbstractControl>this.formGame.get('_name');
   }
 
+  get thumbnailCover(): AbstractControl {
+    return <AbstractControl>this.formGame.get('_thumbnailCover');
+  }
 
+  submit(): void {
+    // get sur l'api pour tester l'existence de ce jeu
+    // si oui, alors nameExists = true; et on ne modifie pas l'objet
+    // this.nameExists = true;
+    console.log(this.formGame);
+    this.game.name = this.name.value;
+    this.game.thumbnailCover = this.thumbnailCover.value;
+    console.log(this.game);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import {Account} from "../../models/api-steam/account";
 import {ApiRequestService} from "../../service/api-request.service";
@@ -11,8 +11,10 @@ import {Router} from "@angular/router";
 })
 export class FormAccountComponent implements OnInit {
 
-  faEye = faEye;
+  @Input()
   account: Account = new Account();
+
+  faEye = faEye;
   maxNameCharacters: number = 4;
   maxNicknameCharacters: number = 3;
   tmpCheckPassword: string = '';
@@ -33,13 +35,23 @@ export class FormAccountComponent implements OnInit {
   // Ici la fonction n'a pas de return, donc une Promise vide (Promise<void>)
   async submit(): Promise<void> {
     // On doit préciser async aussi devant notre fonction anonyme
-    this.apiRequestService.createAccount(this.account).subscribe(async (data) => {
-      if (data) {
-        this.alertAccountOk = true;
-        // on place le "await" devant le traitement asynchrone
-        await this.router.navigate(['/account']);
-      }
-    });
+    if (this.account.id !== 0) {
+      this.apiRequestService.updateAccount(this.account).subscribe(async (data) => {
+        if (data) {
+          this.alertAccountOk = true;
+          // on place le "await" devant le traitement asynchrone
+          await this.router.navigate(['/account/' + this.account.id + '/details']);
+        }
+      });
+    } else {
+      this.apiRequestService.createAccount(this.account).subscribe(async (data) => {
+        if (data) {
+          this.alertAccountOk = true;
+          // on place le "await" devant le traitement asynchrone
+          await this.router.navigate(['/account']);
+        }
+      });
+    }
   }
 
 }

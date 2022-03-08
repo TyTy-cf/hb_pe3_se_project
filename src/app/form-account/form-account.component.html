@@ -2,7 +2,7 @@
 <div class="col-6 mx-auto">
 
   <div class="alert alert-success" role="alert" [hidden]="!alertAccountOk">
-    L'account a bien été créé !
+    <p *ngIf="account.id !== 0">L'account a bien été modifié !</p>
   </div>
 
   <h2 class="my-3">Création d'un compte</h2>

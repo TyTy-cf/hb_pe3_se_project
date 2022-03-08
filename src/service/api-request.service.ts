@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ApiPlatformRequest} from "../models/api-steam/api-platform-request";
 import {Account} from "../models/api-steam/account";
 import {Game} from "../models/api-steam/game";
 import {sprintf} from "sprintf-js";
 import {Librarie} from "../models/api-steam/librarie";
+import {AccountJson} from "../models/api-steam/account-json";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,18 @@ export class ApiRequestService {
 
   // Librairie
   private urlLibrariesByAccountId: string = this.rawUrl + '/api/libraries?page=1&account=%s';
+
+  headers: {headers: HttpHeaders} = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/ld+json',
+    })
+  };
+  headersPatch: {headers: HttpHeaders} = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/merge-patch+json',
+    })
+  };
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -53,7 +66,28 @@ export class ApiRequestService {
   }
 
   createAccount(account: Account): Observable<Account> {
-    return this.httpClient.post<Account>(this.rawUrl + this.urlAccounts, account.toJson());
+    return this.httpClient.post<Account>(this.rawUrl + this.urlAccounts,
+      this.accountToJson(account),
+      this.headers
+    );
+  }
+
+  updateAccount(account: Account): Observable<Account> {
+    return this.httpClient.patch<Account>(
+      this.rawUrl + this.urlAccountById + account.id,
+      this.accountToJson(account),
+      this.headersPatch
+    );
+  }
+
+  accountToJson(account: Account): AccountJson {
+    return {
+      name: account.name,
+      nickname: account.nickname,
+      email: account.email,
+      wallet: account.wallet,
+      libraries: account.libraries
+    };
   }
 
   /**

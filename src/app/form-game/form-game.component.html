@@ -1,6 +1,44 @@
 
-<form [formGroup]="formGame">
-
-
-
+<form [formGroup]="formGame" class="col-6 mx-auto">
+  <div class="mt-2">
+    <label class="form-label">Nom</label>
+    <input  formControlName="_name"
+            name="gameName"
+            type="text"
+            class="form-control"
+            placeholder="Nom"
+            [class.is-invalid]="(name.invalid || nameExists) && name.touched"
+            [class.is-valid]="name.valid && name.touched"
+    >
+    <div *ngIf="(name.invalid || nameExists) && (name.touched || name.dirty)">
+      <div *ngIf="name.errors?.required" class="text-danger">
+        Le nom est obligatoire
+      </div>
+      <div *ngIf="nameExists" class="text-danger">
+        Ce jeu existe déjà
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <label class="form-label">Image</label>
+    <input  formControlName="_thumbnailCover"
+            name="gameThumbnailCover"
+            type="text"
+            class="form-control"
+            placeholder="ThumbnailCover"
+            [class.is-invalid]="thumbnailCover.invalid && thumbnailCover.touched"
+            [class.is-valid]="thumbnailCover.valid && thumbnailCover.touched"
+    >
+    <div *ngIf="thumbnailCover.invalid && (thumbnailCover.touched || thumbnailCover.dirty)">
+      <div *ngIf="thumbnailCover.errors?.required" class="text-danger">
+        Le thumbnailCover est obligatoire
+      </div>
+    </div>
+  </div>
+  <button [disabled]="formGame.invalid"
+          class="btn btn-steamish mt-2"
+          (click)="submit()"
+  >
+    Créer
+  </button>
 </form>
