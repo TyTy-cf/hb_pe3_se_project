@@ -20,11 +20,12 @@ import { CardGameComponent } from './card-game/card-game.component';
 import { MainGamePageComponent } from './main-game-page/main-game-page.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ApiPokedexComponent } from './api-pokedex/api-pokedex.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormLanguageComponent } from './form-language/form-language.component';
 import { FactionStarshipComponent } from './faction-starship/faction-starship.component';
 import { FormAccountComponent } from './form-account/form-account.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {FormGameComponent} from "./form-game/form-game.component";
 
 @NgModule({
   declarations: [
@@ -47,13 +48,15 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     ApiPokedexComponent,
     FormLanguageComponent,
     FactionStarshipComponent,
-    FormAccountComponent
+    FormAccountComponent,
+    FormGameComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         FontAwesomeModule
     ],
   providers: [],

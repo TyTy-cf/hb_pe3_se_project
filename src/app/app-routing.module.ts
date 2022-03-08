@@ -15,6 +15,7 @@ import {ApiPokedexComponent} from "./api-pokedex/api-pokedex.component";
 import {FormLanguageComponent} from "./form-language/form-language.component";
 import {FactionStarshipComponent} from "./faction-starship/faction-starship.component";
 import {FormAccountComponent} from "./form-account/form-account.component";
+import {FormGameComponent} from "./form-game/form-game.component";
 
 // path : le chemin à utiliser dans l'URL
 // component : le component lié au chemin
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: '', component: MainGamePageComponent },
   { path: 'form/language', component: FormLanguageComponent },
   { path: 'form/account', component: FormAccountComponent },
+  { path: 'form/game', component: FormGameComponent },
 ];
 
 @NgModule({
