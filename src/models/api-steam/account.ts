@@ -1,3 +1,4 @@
+import {AccountJson} from "./account-json";
 
 export class Account {
 
@@ -72,5 +73,15 @@ export class Account {
 
   set libraries(value: string[]) {
     this._libraries = value;
+  }
+
+  toJson(): AccountJson {
+    return {
+      name: this._name,
+      nickname: this._nickname,
+      email: this._email,
+      wallet: this._wallet,
+      libraries: this._libraries
+    };
   }
 }

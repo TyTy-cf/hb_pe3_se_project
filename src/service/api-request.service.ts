@@ -44,6 +44,18 @@ export class ApiRequestService {
     return this.httpClient.get<Account>(this.rawUrl + this.urlAccountById + id);
   }
 
+  getLibrariesByAccountId(id: string): Observable<ApiPlatformRequest<Librarie>> {
+    // https://steam-ish.test-02.drosalys.net/api/libraries?page=1&account=5
+    // urlLibrariesByAccountId =
+    // https://steam-ish.test-02.drosalys.net/api/libraries?page=1&account=%s
+    // le %s est remplacé par le paramètre de la fonction sprintf
+    return this.httpClient.get<ApiPlatformRequest<Librarie>>(sprintf(this.urlLibrariesByAccountId, id));
+  }
+
+  createAccount(account: Account): Observable<Account> {
+    return this.httpClient.post<Account>(this.rawUrl + this.urlAccounts, account.toJson());
+  }
+
   /**
    * Permet de faire une requête http get vers l'api Steam-Ish afin de récupérer tous les jeux
    *
@@ -80,14 +92,6 @@ export class ApiRequestService {
   getGamesByFilters(filteredField: string, orderBy: string = 'asc'): Observable<ApiPlatformRequest<Game>> {
     console.log(this.urlFiltered + filteredField + '%5D=' + orderBy);
     return this.httpClient.get<ApiPlatformRequest<Game>>(this.urlFiltered + filteredField + '%5D=' + orderBy);
-  }
-
-  getLibrariesByAccountId(id: string): Observable<ApiPlatformRequest<Librarie>> {
-    // https://steam-ish.test-02.drosalys.net/api/libraries?page=1&account=5
-    // urlLibrariesByAccountId =
-    // https://steam-ish.test-02.drosalys.net/api/libraries?page=1&account=%s
-    // le %s est remplacé par le paramètre de la fonction sprintf
-    return this.httpClient.get<ApiPlatformRequest<Librarie>>(sprintf(this.urlLibrariesByAccountId, id));
   }
 
 }

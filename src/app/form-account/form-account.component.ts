@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import {Account} from "../../models/api-steam/account";
+import {ApiRequestService} from "../../service/api-request.service";
 
 @Component({
   selector: 'app-form-account',
@@ -16,12 +17,14 @@ export class FormAccountComponent implements OnInit {
   tmpCheckPassword: string = '';
   typeInput: string = 'password';
 
-  constructor() { }
+  constructor(private apiRequestService: ApiRequestService) { }
 
   ngOnInit(): void {
   }
 
   submit(): void {
+    this.apiRequestService.createAccount(this.account).subscribe();
+
   }
 
 }
