@@ -22,6 +22,9 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { ApiPokedexComponent } from './api-pokedex/api-pokedex.component';
 import {FormsModule} from "@angular/forms";
 import { FormLanguageComponent } from './form-language/form-language.component';
+import { FactionStarshipComponent } from './faction-starship/faction-starship.component';
+import { FormAccountComponent } from './form-account/form-account.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -42,14 +45,17 @@ import { FormLanguageComponent } from './form-language/form-language.component';
     MainGamePageComponent,
     GameDetailComponent,
     ApiPokedexComponent,
-    FormLanguageComponent
+    FormLanguageComponent,
+    FactionStarshipComponent,
+    FormAccountComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        FontAwesomeModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

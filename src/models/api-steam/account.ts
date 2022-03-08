@@ -8,6 +8,7 @@ export class Account {
   private _wallet: number = 0;
   private _isVisible: boolean = false;
   private _libraries: string[] = [];
+  private _password: string = '';
 
   get id(): number {
     return this._id;
@@ -39,6 +40,14 @@ export class Account {
 
   set nickname(value: string) {
     this._nickname = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
   }
 
   get wallet(): number {

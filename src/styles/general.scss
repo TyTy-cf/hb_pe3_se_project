@@ -89,3 +89,15 @@ body {
     border: 1px solid $background-color-price;
   }
 }
+
+.input-icon {
+  width: calc(100% - 30px);
+  &.icon {
+    width: 20px;
+    padding-top: 35px;
+    &:hover {
+      color: $background-color-price;
+    }
+  }
+}
+

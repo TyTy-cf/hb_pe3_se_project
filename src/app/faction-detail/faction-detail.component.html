@@ -5,6 +5,7 @@
   <div class="row" *ngIf="arrayStarships.length > 0; else noStarships">
       <div class="col-lg-4 col-md-6 card-faction"
            *ngFor="let starship of arrayStarships"
+           routerLink="/faction/{{faction.slug}}/starships/{{starship.slug}}"
       >
         <h3>{{ starship.name }}</h3>
         <div class="container-image">

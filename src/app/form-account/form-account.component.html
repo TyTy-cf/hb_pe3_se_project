@@ -1,0 +1,131 @@
+
+<div class="col-6 mx-auto">
+  <h2 class="my-3">Création d'un compte</h2>
+
+  <form (ngSubmit)="submit()" #myForm="ngForm">
+
+    <div>
+      <label class="form-label">Nom</label>
+      <input  class="form-control"
+              type="text"
+              name="accountName"
+              #accountName="ngModel"
+              [(ngModel)]="account.name"
+              [class.is-invalid]="accountName.invalid && accountName.touched"
+              [class.is-valid]="accountName.valid"
+              [minlength]="maxNameCharacters"
+              placeholder="Nom"
+              required
+      >
+      <div *ngIf="accountName.invalid && (accountName.touched || accountName.dirty)">
+        <div *ngIf="accountName.errors?.required" class="text-danger">
+          Le nom est obligatoire
+        </div>
+        <div *ngIf="accountName.errors?.minlength" class="text-danger">
+          Le nom doit faire au moins {{ maxNameCharacters }} caractères
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label class="form-label">Pseudo</label>
+      <input  class="form-control"
+              type="text"
+              name="accountNickname"
+              #accountNickname="ngModel"
+              [(ngModel)]="account.nickname"
+              [class.is-invalid]="accountNickname.invalid && accountNickname.touched"
+              [class.is-valid]="accountNickname.valid"
+              [minLength]="maxNicknameCharacters"
+              placeholder="Pseudo"
+              required
+      >
+      <div *ngIf="accountNickname.invalid && (accountNickname.touched || accountNickname.dirty)">
+        <div *ngIf="accountNickname.errors?.required" class="text-danger">
+          Le pseudo est obligatoire
+        </div>
+        <div *ngIf="accountNickname.errors?.minlength" class="text-danger">
+          Le pseudo doit faire au moins {{ maxNicknameCharacters }} caractères
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label class="form-label">Email</label>
+      <input  class="form-control"
+              type="email"
+              name="accountEmail"
+              #accountEmail="ngModel"
+              [(ngModel)]="account.email"
+              [class.is-invalid]="accountEmail.invalid && accountEmail.touched"
+              [class.is-valid]="accountEmail.valid"
+              placeholder="Email"
+              pattern="^.*@{1}.*$"
+              required
+      >
+      <div *ngIf="accountEmail.invalid && (accountEmail.touched || accountEmail.dirty)">
+        <div *ngIf="accountEmail.errors?.required" class="text-danger">
+          L'email est obligatoire
+        </div>
+        <div *ngIf="accountEmail.errors?.pattern" class="text-danger">
+          L'email est incorrect
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-icon">
+        <label class="form-label">Password</label>
+        <input  class="form-control"
+                [type]="typeInput"
+                name="accountPassword"
+                #accountPassword="ngModel"
+                [(ngModel)]="account.password"
+                [class.is-invalid]="accountPassword.invalid && accountPassword.touched"
+                [class.is-valid]="accountPassword.valid"
+                placeholder="Password"
+                required
+        >
+      </div>
+      <div class="input-icon icon"
+           (mouseover)="typeInput = 'text'"
+           (mouseleave)="typeInput = 'password'">
+        <fa-icon [icon]="faEye"></fa-icon>
+      </div>
+      <div *ngIf="accountPassword.invalid && (accountPassword.touched || accountPassword.dirty)">
+        <div *ngIf="accountPassword.errors?.required" class="text-danger">
+          Le mot de passe est obligatoire
+        </div>
+        <div *ngIf="accountPassword.errors?.pattern" class="text-danger">
+          Le mot de passe doit contenir au moins un chiffre, une majuscule et un caractère spécial (@&$)
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label class="form-label">Check password</label>
+      <input  class="form-control"
+              type="password"
+              name="accountCheckPassword"
+              #accountCheckPassword="ngModel"
+              [(ngModel)]="tmpCheckPassword"
+              [class.is-invalid]="accountCheckPassword.value !== accountPassword.value && accountCheckPassword.touched"
+              [class.is-valid]="accountCheckPassword.value === accountPassword.value && accountCheckPassword.touched"
+              placeholder="Check password"
+              required
+      >
+      <div *ngIf="accountCheckPassword.value !== accountPassword.value && (accountPassword.touched || accountPassword.dirty)">
+        <div class="text-danger">
+          Les mots de passe doivent correspondre
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <button class="btn btn-steamish" type="submit" [disabled]="myForm.invalid">
+        Valider
+      </button>
+    </div>
+  </form>
+
+</div>

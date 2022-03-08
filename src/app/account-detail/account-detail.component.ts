@@ -23,6 +23,7 @@ export class AccountDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((paramRoute) => {
       this.idAccount = paramRoute.idAccount;
+      console.log(paramRoute.idAccount);
     });
     // getAccountById : renvoie un Observable<Account>
     // Concrètement vous pouvez l'assimiler à un compte twitter, sauf que pour récupérer le "tweet"

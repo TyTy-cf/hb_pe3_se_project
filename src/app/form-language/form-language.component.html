@@ -20,6 +20,7 @@
             [class.is-valid]="totoFaitDuVelo.valid"
             required
             minlength="4"
+            pattern="^.*[A-Z].*$"
     >
     <div *ngIf="totoFaitDuVelo.invalid && (totoFaitDuVelo.touched || totoFaitDuVelo.dirty)">
       <div *ngIf="totoFaitDuVelo.errors?.required" class="text-danger">
