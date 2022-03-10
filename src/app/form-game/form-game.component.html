@@ -19,6 +19,7 @@
       </div>
     </div>
   </div>
+
   <div class="mt-2">
     <label class="form-label">Image</label>
     <input  formControlName="_thumbnailCover"
@@ -35,6 +36,50 @@
       </div>
     </div>
   </div>
+
+  <div class="mt-2">
+    <label class="form-label">Langue</label>
+    <select formControlName="_language"
+            name="gameLanguage"
+            class="form-control"
+    >
+      <option *ngFor="let language of languages" [ngValue]="language">
+        {{ language.name }}
+      </option>
+    </select>
+  </div>
+
+<!-- /!\ formArrayName au lieu de formControlName -->
+  <div formArrayName="_genres">
+    <div *ngFor="let _genre of genres.controls; index as indexFormControl">
+      <label>Genre #{{indexFormControl + 1}}</label>
+      <div class="input-group my-2">
+        <select [formControlName]="indexFormControl"
+                name="gameGenre"
+                class="form-control"
+        >
+          <option *ngFor="let genre of arrayGenres" [ngValue]="genre">
+            {{ genre.name }}
+          </option>
+        </select>
+        <span class="input-group-btn">
+            <button type="button"
+                    (click)="addNameField()"
+                    class="btn btn-success"
+            >
+              +
+            </button>
+            <button type="button"
+                    (click)="deleteNameField(indexFormControl)"
+                    class="btn btn-danger"
+            >
+              -
+            </button>
+          </span>
+      </div>
+    </div>
+  </div>
+
   <button [disabled]="formGame.invalid"
           class="btn btn-steamish mt-2"
           (click)="submit()"

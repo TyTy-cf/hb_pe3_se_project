@@ -1,3 +1,5 @@
+import {Language} from "./language";
+import {Genre} from "./genre";
 
 export class Game {
 
@@ -6,6 +8,8 @@ export class Game {
   private _publishedAt: Date = new Date();
   private _price: number = 0;
   private _thumbnailCover: string = '';
+  private _language: Language|undefined;
+  private _genres: Genre[] = [];
 
   get id(): number {
     return this._id;
@@ -45,5 +49,21 @@ export class Game {
 
   set thumbnailCover(value: string) {
     this._thumbnailCover = value;
+  }
+
+  get language(): Language|undefined {
+    return this._language;
+  }
+
+  set language(value: Language|undefined) {
+    this._language = value;
+  }
+
+  get genres(): Genre[] {
+    return this._genres;
+  }
+
+  set genres(value: Genre[]) {
+    this._genres = value;
   }
 }

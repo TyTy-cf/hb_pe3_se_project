@@ -7,6 +7,9 @@ import {Game} from "../models/api-steam/game";
 import {sprintf} from "sprintf-js";
 import {Librarie} from "../models/api-steam/librarie";
 import {AccountJson} from "../models/api-steam/account-json";
+import {Language} from "../models/api-steam/language";
+import {Genre} from "../models/api-steam/genre";
+import {ApiConstantes} from "./api-constantes";
 
 @Injectable({
   providedIn: 'root'
@@ -27,17 +30,11 @@ export class ApiRequestService {
   // Librairie
   private urlLibrariesByAccountId: string = this.rawUrl + '/api/libraries?page=1&account=%s';
 
-  headers: {headers: HttpHeaders} = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/ld+json',
-    })
-  };
-  headersPatch: {headers: HttpHeaders} = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/merge-patch+json',
-    })
-  };
+  // languages
+  private urlLanguages: string = '/api/languages';
 
+  // genres
+  private urlGenres: string = '/api/genres';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -68,7 +65,7 @@ export class ApiRequestService {
   createAccount(account: Account): Observable<Account> {
     return this.httpClient.post<Account>(this.rawUrl + this.urlAccounts,
       this.accountToJson(account),
-      this.headers
+      ApiConstantes.headers
     );
   }
 
@@ -76,7 +73,7 @@ export class ApiRequestService {
     return this.httpClient.patch<Account>(
       this.rawUrl + this.urlAccountById + account.id,
       this.accountToJson(account),
-      this.headersPatch
+      ApiConstantes.headersPatch
     );
   }
 
@@ -95,7 +92,7 @@ export class ApiRequestService {
    *
    * @param urlPagination l'url à prendre en argument, par défaut elle vaut /api/games
    *
-   * @return un Observable<ApiPlatformRequest<Game>> où les jeux seront stockés
+   * @return Observable<ApiPlatformRequest<Game>> où les jeux seront stockés
    */
   getGames(urlPagination: string = this.urlGames): Observable<ApiPlatformRequest<Game>> {
     return this.httpClient.get<ApiPlatformRequest<Game>>(this.rawUrl + urlPagination);
@@ -126,6 +123,14 @@ export class ApiRequestService {
   getGamesByFilters(filteredField: string, orderBy: string = 'asc'): Observable<ApiPlatformRequest<Game>> {
     console.log(this.urlFiltered + filteredField + '%5D=' + orderBy);
     return this.httpClient.get<ApiPlatformRequest<Game>>(this.urlFiltered + filteredField + '%5D=' + orderBy);
+  }
+
+  getLanguages(): Observable<ApiPlatformRequest<Language>> {
+    return this.httpClient.get<ApiPlatformRequest<Language>>(this.rawUrl + this.urlLanguages);
+  }
+
+  getGenres(): Observable<ApiPlatformRequest<Genre>> {
+    return this.httpClient.get<ApiPlatformRequest<Genre>>(this.rawUrl + this.urlGenres);
   }
 
 }

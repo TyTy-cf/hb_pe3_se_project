@@ -28,6 +28,7 @@ export class FormAccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.account)
   }
 
   // async : mot clé indiquant que la fonction effectue un traitement "asynchrone"
